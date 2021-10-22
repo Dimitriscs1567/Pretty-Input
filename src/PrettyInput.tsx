@@ -3,8 +3,9 @@ import React, { useState } from "react";
 type Props = {
   value: number | undefined;
   setValue: (newValue: number | undefined) => void;
-  maxNumbers: number;
+  maxDigits: number;
   maxNumberOfDecimals?: number;
+  maxValue?: number;
 };
 
 const PrettyInput = (props: Props) => {
@@ -48,8 +49,16 @@ const PrettyInput = (props: Props) => {
       }
     }
 
-    if (newValue.length > props.maxNumbers) {
-      newValue = newValue.substring(0, props.maxNumbers);
+    if (
+      newValue.length > 0 &&
+      props.maxValue &&
+      parseFloat(newValue) > props.maxValue
+    ) {
+      newValue = props.maxValue.toString();
+    }
+
+    if (newValue.length > props.maxDigits) {
+      newValue = newValue.substring(0, props.maxDigits);
     }
 
     if (newValue.length === 0) {

@@ -12,18 +12,23 @@ const App = () => {
       <PrettyInput
         value={value1}
         setValue={setValue1}
-        maxNumbers={8}
+        maxDigits={8}
         maxNumberOfDecimals={3}
       />
       <div style={{ height: "100px" }} />
       <PrettyInput
         value={value2}
         setValue={setValue2}
-        maxNumbers={8}
+        maxDigits={8}
         maxNumberOfDecimals={1}
       />
       <div style={{ height: "100px" }} />
-      <PrettyInput value={value3} setValue={setValue3} maxNumbers={3} />
+      <PrettyInput
+        value={value3}
+        setValue={setValue3}
+        maxDigits={3}
+        maxValue={100}
+      />
     </div>
   );
 };
